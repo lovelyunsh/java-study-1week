@@ -34,6 +34,12 @@ public class App {
                     result = num1 / num2;
                     break;
             }
+            if(idx == 10){
+                for(int i = 0 ; i < 9 ; i++){
+                    resultArray[i] = resultArray[i+1];
+                }
+                idx--;
+            }
             resultArray[idx++] = result;
 
             System.out.println("결과: " + result);
