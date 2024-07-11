@@ -1,5 +1,14 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Calculator {
     private int result;
+    private List<Integer> resultList;
+
+    {
+        result = 0;
+        resultList = new ArrayList<>();
+    }
 
     public int getResult() {
         return result;
@@ -26,6 +35,11 @@ public class Calculator {
                 result = num1 / num2;
                 break;
         }
+        resultList.add(result);
         return result;
+    }
+
+    public void removeResult() {
+        resultList.remove(0);
     }
 }
