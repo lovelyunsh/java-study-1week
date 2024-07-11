@@ -1,22 +1,39 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Calculator {
+    //파이는 변하지 않고 모든 인스턴스가 공유해서 쓸 수 있기 때문에 final static으로 선언.
+    private final static double PI = 3.141592;
     private int result;
     private List<Integer> resultList;
+    private List<Double> circleResultList;
 
     public Calculator() {
-        result = 0;
         resultList = new ArrayList<>();
+        circleResultList = new ArrayList<>();
     }
 
-    public int getResult() {
-        return result;
+    public double calculateCircleArea(int radius) {
+        double circleResult = radius * radius * PI;
+        return circleResult;
     }
 
-    public void setResult(int result) {
-        this.result = result;
+    public List<Integer> getResultList() {
+        return new ArrayList<>(resultList);
+    }
+
+    public void setResultList(List<Integer> resultList) {
+        this.resultList = resultList;
+    }
+
+    public List<Double> getCircleResultList() {
+        return new ArrayList<>(circleResultList);
+    }
+
+    public void setCircleResultList(List<Double> circleResultList) {
+        this.circleResultList = circleResultList;
     }
 
     public int calculate(int num1, int num2, char operator) {
@@ -36,7 +53,6 @@ public class Calculator {
                 result = num1 / num2;
                 break;
         }
-        resultList.add(result);
         return result;
     }
 
@@ -46,5 +62,9 @@ public class Calculator {
 
     public void inquiryResults() {
         System.out.println(Arrays.toString(resultList.toArray()));
+    }
+
+    public void inquiryCircleResults() {
+        System.out.println(Arrays.toString(circleResultList.toArray()));
     }
 }
