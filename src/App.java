@@ -1,9 +1,12 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
+        int resultArray[] = new int[10];
+        int idx = 0;
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt();
@@ -31,8 +34,9 @@ public class App {
                     result = num1 / num2;
                     break;
             }
-            System.out.println("결과: " + result);
+            resultArray[idx++] = result;
 
+            System.out.println("결과: " + result);
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             if(sc.nextLine().equals("exit"))
                 break;
