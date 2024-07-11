@@ -1,12 +1,13 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int resultArray[] = new int[10];
-        int idx = 0;
+        List<Integer> resultList = new ArrayList<>();
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = sc.nextInt();
@@ -34,15 +35,11 @@ public class App {
                     result = num1 / num2;
                     break;
             }
-            if(idx == 10){
-                for(int i = 0 ; i < 9 ; i++){
-                    resultArray[i] = resultArray[i+1];
-                }
-                idx--;
-            }
-            resultArray[idx++] = result;
-
+            resultList.add(result);
             System.out.println("결과: " + result);
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            if(sc.nextLine().equals("remove"))
+                resultList.remove(0);
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             if(sc.nextLine().equals("exit"))
                 break;
