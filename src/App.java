@@ -16,7 +16,8 @@ public class App {
             sc.nextLine();
             System.out.print("사칙연산 기호를 입력하세요: ");
             char operator = sc.nextLine().charAt(0);
-            int result = calculator.calculate(num1,num2,operator);
+            calculator.calculate(num1,num2,operator);
+            int result = calculator.getResult();
 
             resultList.add(result);
             System.out.println("결과: " + result);

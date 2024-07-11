@@ -1,5 +1,14 @@
 public class Calculator {
     private int result;
+
+    public int getResult() {
+        return result;
+    }
+
+    public void setResult(int result) {
+        this.result = result;
+    }
+
     public int calculate(int num1, int num2, char operator) {
         switch (operator) {
             case '+':
