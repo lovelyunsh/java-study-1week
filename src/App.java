@@ -19,9 +19,9 @@ public class App {
             if (sc.nextLine().equals("remove"))
                 calculator.removeResult();
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-//            if(sc.nextLine().equals("inquiry")) {
-//                System.out.println(Arrays.toString(resultList.toArray()));
-//            }
+            if(sc.nextLine().equals("inquiry")) {
+                calculator.inquiryResults();
+            }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             if (sc.nextLine().equals("exit"))
                 break;

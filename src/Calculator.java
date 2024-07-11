@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Calculator {
@@ -41,5 +42,9 @@ public class Calculator {
 
     public void removeResult() {
         resultList.remove(0);
+    }
+
+    public void inquiryResults() {
+        System.out.println(Arrays.toString(resultList.toArray()));
     }
 }
