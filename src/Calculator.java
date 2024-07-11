@@ -6,7 +6,7 @@ public class Calculator {
     private int result;
     private List<Integer> resultList;
 
-    {
+    public Calculator() {
         result = 0;
         resultList = new ArrayList<>();
     }
