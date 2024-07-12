@@ -8,29 +8,21 @@ public class ArithmeticCalculator extends Calculator {
     }
 
     public double calculate(double num1, double num2, char operator) {
-        changeOperator(operator);
+        this.operator = getOperator(operator);
         double result = this.operator.operate(num1, num2);
         super.getResultList().add(result);
         return result;
     }
 
-    private void changeOperator(char operator) {
-        switch (operator) {
-            case '+':
-                this.operator = new AddOperator();
-                return;
-            case '-':
-                this.operator = new SubtractOperator();
-                return;
-            case '*':
-                this.operator = new MultiplyOperator();
-                return;
-            case '/':
-                this.operator = new DivideOperator();
-                return;
-            default:
-                throw new IllegalArgumentException("올바르지 않은 연산자");
-        }
+    private Operator getOperator(char operator) {
+        return switch (operator) {
+            case '+' -> new AddOperator();
+            case '-' -> new SubtractOperator();
+            case '*' -> new MultiplyOperator();
+            case '/' -> new DivideOperator();
+            case '%' -> new ModOperator();
+            default -> throw new IllegalArgumentException("올바르지 않은 연산자");
+        };
     }
 
 }
