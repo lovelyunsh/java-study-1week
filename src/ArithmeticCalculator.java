@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class ArithmeticCalculator extends Calculator {
@@ -15,13 +16,13 @@ public class ArithmeticCalculator extends Calculator {
     }
 
     private Operator getOperator(char operator) {
-        return switch (operator) {
-            case '+' -> new AddOperator();
-            case '-' -> new SubtractOperator();
-            case '*' -> new MultiplyOperator();
-            case '/' -> new DivideOperator();
-            case '%' -> new ModOperator();
-            default -> throw new IllegalArgumentException("올바르지 않은 연산자");
+        OperatorType operatorType = OperatorType.getOperatorType(operator);
+        return switch (operatorType) {
+            case ADD -> new AddOperator();
+            case SUBTRACT -> new SubtractOperator();
+            case MULTIPLY -> new MultiplyOperator();
+            case DIVIDE -> new DivideOperator();
+            case MOD -> new ModOperator();
         };
     }
 
